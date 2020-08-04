@@ -10,12 +10,12 @@
 	<h1>로그인 유효성체크</h1>
 
 	<div>
-	<form action="https://www.naver.com" method="get" id="frm">
+	<form action="https://www.naver.com" method="get" id="frm" name="frmNM">
 		<table>
 			<tbody>
 				<tr>
 					<td>
-						<input type="text" placeholder="아이디" id="uId">
+						<input type="text" placeholder="아이디" id="uId" name="userID">
 
 					</td>
 					<td rowspan="2">
@@ -24,7 +24,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="password" placeholder="비밀번호" id="uPw">
+						<input type="password" placeholder="비밀번호" id="uPw" name="userPW">
 					</td>
 				</tr>
 			</tbody>
@@ -40,15 +40,20 @@
 	</div>
 </div>
 <span id="loginAlert"></span>
+
 <script>
 
+
     document.getElementById("uId").focus();
+
 
     function fnValid(){
 
         var uid = document.getElementById("uId").value;
         var upw = document.getElementById("uPw").value;
          var loginAlert = document.getElementById("loginAlert");
+        var uFrm = document.getElementById("frm");
+
 
         var uId =document.getElementById("uId");
         var uPw = document.getElementById("uPw");
@@ -87,7 +92,7 @@
         }
 
         else{
-            document.getElementById("frm").submit();
+            uFrm.submit();
         }
      }
 
