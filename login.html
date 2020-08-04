@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<div id="wrap">
+	<h1>로그인 유효성체크</h1>
+
+	<div>
+	<form action="https://www.naver.com" method="get" id="frm">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<input type="text" placeholder="아이디" id="uId">
+
+					</td>
+					<td rowspan="2">
+						<button type="button" onclick="fnValid()">로그인</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="password" placeholder="비밀번호" id="uPw">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+	<div>
+		<span>회원가입</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;
+		<span>아이디찾기</span>
+		&nbsp;&nbsp;|&nbsp;&nbsp;
+		<span>비밀번호 찾기</span>
+	</div>
+</div>
+<span id="loginAlert"></span>
+<script>
+
+    document.getElementById("uId").focus();
+
+    function fnValid(){
+
+        var uid = document.getElementById("uId").value;
+        var upw = document.getElementById("uPw").value;
+         var loginAlert = document.getElementById("loginAlert");
+
+        var uId =document.getElementById("uId");
+        var uPw = document.getElementById("uPw");
+
+        if( (uid == "" || uid == " ") && (upw == "" || upw == " ") ){
+
+            loginAlert.innerText = "아이디와 비밀번호를 입력하세요.";
+            loginAlert.style.display = "block";
+
+            uId.focus();
+            uId.style.border = "1px solid red";
+
+            uPw.style.border = "1px solid red";
+        }
+
+        else if (uid == "" || uid == " "){
+
+            loginAlert.innerText = "아이디를 입력하세요.";
+            loginAlert.style.display = "block";
+
+            uId.style.border = "1px solid red";
+            uId.focus();
+
+            uPw.style.border = "1px solid #ccc";
+        }
+
+        else if(upw == "" || upw == " " ){
+
+            loginAlert.innerText = "비밀번호를 입력하세요.";
+            loginAlert.style.display = "block";
+
+            uId.style.border = "1px solid #ccc";
+
+            uPw.style.border = "1px solid red";
+            uPw.focus();
+        }
+
+        else{
+            document.getElementById("frm").submit();
+        }
+     }
+
+
+
+
+</script>
+</body>
+</html>
